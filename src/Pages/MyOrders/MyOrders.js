@@ -5,7 +5,7 @@ import OrdersRow from './OrdersRow';
 const MyOrders = () => {
     const {user} = useContext(AuthContext);
     const [orders,setOrders] = useState([]);
-    const url= `http://localhost:5000/checkout?email=${user?.email}`;
+    const url= `https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout?email=${user?.email}`;
     useEffect(()=>{
         fetch(url)
         .then(res=> res.json())
@@ -18,7 +18,7 @@ const MyOrders = () => {
     const handleDelete = id =>{
       const proceed = window.confirm('Are you sure you want to delete?');
       if(proceed){
-      fetch(`http://localhost:5000/checkout/${id}`,{
+      fetch(`https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout/${id}`,{
         method:'DELETE'
         })
       .then(res=>res.json())

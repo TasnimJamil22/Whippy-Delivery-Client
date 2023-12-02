@@ -14,7 +14,7 @@ const AddService = () => {
         console.log(service,price,image,description);
         const newService = {service,price,image,description};
          
-        fetch('http://localhost:5000/addservice', {
+        fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/addservice', {
             method: 'POST',
             headers: {
                 'content-type':'application/json',

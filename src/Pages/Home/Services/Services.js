@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router';
 import Service from '../Service/Service';
+import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const Services = () => {
     const [services,setServices] = useState([]);
+     
     
     useEffect(()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/services',{
+            method:'GET'
+        }) 
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            setServices(data);
-        })
+             setServices(data);
+         })
     },[])
     
     

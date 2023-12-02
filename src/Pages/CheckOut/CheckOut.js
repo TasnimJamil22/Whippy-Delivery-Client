@@ -23,7 +23,7 @@ const CheckOut = () => {
           description,
           service_id :_id
         }
-        fetch('http://localhost:5000/checkout',{
+        fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

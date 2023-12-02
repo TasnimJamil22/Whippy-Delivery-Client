@@ -9,7 +9,7 @@ import Row from './Row';
     //  const {_id,name,email,price,service,image,description}= allOrders;
 
     useEffect(()=>{
-      fetch('http://localhost:5000/manage')
+      fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/manage')
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -20,7 +20,7 @@ import Row from './Row';
     const handleDelete = id =>{
       const proceed = window.confirm('Are you sure you want to delete?');
       if(proceed){
-      fetch(`http://localhost:5000/checkout/${id}`,{
+      fetch(`https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout/${id}`,{
         method:'DELETE'
         })
       .then(res=>res.json())
@@ -36,7 +36,7 @@ import Row from './Row';
     }
 
     const handleStatus = id => {
-        fetch(`http://localhost:5000/manage/${id}`,{
+        fetch(`https://node-server-iatejyv2i-tasnimjamil22.vercel.app/manage/${id}`,{
            method:'PATCH',
            headers:{
             'content-type': 'application/json'
