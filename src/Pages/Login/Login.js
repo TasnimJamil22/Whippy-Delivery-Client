@@ -27,11 +27,11 @@ const Login = () => {
     
   }
     return (
-        <div className="hero min-h-screen  mx-auto px-20    ">
+        <div className="hero min-h-screen  mx-auto  bg-emerald-50    ">
   <div className="hero-content flex-col lg:flex-row-reverse   ">
     <div className="text-center lg:text-left  ">
-      <h1 className="text-5xl font-bold font">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+      <h1 className="lg:text-4xl font-bold font text-emerald-400 "> <span className='text-[#14b8a6]'>Login</span> now!</h1>
+      <p className="py-6 text-4xl text-[#14b8a6]"> ᵂᵉˡᶜᵒᵐᵉ ᵗᵒ ᵂʰⁱᵖᵖʸ ᴰᵉˡⁱᵛᵉʳʸ! </p>
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <form onSubmit={handleLogin}>

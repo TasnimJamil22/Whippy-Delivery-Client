@@ -5,7 +5,7 @@ import OrdersRow from './OrdersRow';
 const MyOrders = () => {
     const {user} = useContext(AuthContext);
     const [orders,setOrders] = useState([]);
-    const url= `https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout?email=${user?.email}`;
+    const url= `https://whippy-delivery-server-s.onrender.com/checkout?email=${user?.email}`;
     useEffect(()=>{
         fetch(url)
         .then(res=> res.json())
@@ -18,7 +18,7 @@ const MyOrders = () => {
     const handleDelete = id =>{
       const proceed = window.confirm('Are you sure you want to delete?');
       if(proceed){
-      fetch(`https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout/${id}`,{
+      fetch(`https://whippy-delivery-server-s.onrender.com/checkout/${id}`,{
         method:'DELETE'
         })
       .then(res=>res.json())

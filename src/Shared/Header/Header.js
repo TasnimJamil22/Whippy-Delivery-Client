@@ -18,7 +18,7 @@ const Header = () => {
     <Link to='/myOrders'><li className='mx-3 lg:text-emerald-50 font-medium'>My Orders</li></Link>
     <Link to='/addservice'><li className='mx-3 lg:text-emerald-50 font-medium'>Add a new Services</li></Link>
     <Link to='/manage'><li className='mx-3 lg:text-emerald-50 font-medium'>Manage All</li></Link>
-    <li className='text-emerald-50 pl-5 font-bold'>Welcome {user.email}</li>
+    <li className='text-emerald-700 pl-5 font-bold'>Welcome {user.email}</li>
     <button onClick={handleLogOut} className='btn btn-sm bg-emerald-50 lg:text-[#0f766e] pl-5 font-bold'>Log Out</button>
     
     </>
@@ -28,7 +28,7 @@ const Header = () => {
     }
  </>
     return (
-        <div className="navbar  bg-[#14b8a6] lg:text-emerald-50 sm:text-emerald-800 rounded-lg">
+        <div className="navbar bg-[#14b8a6] lg:text-emerald-50 sm:text-emerald-800 rounded-lg">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">

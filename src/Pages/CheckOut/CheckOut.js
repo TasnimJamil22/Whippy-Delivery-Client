@@ -23,7 +23,7 @@ const CheckOut = () => {
           description,
           service_id :_id
         }
-        fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout',{
+        fetch('https://whippy-delivery-server-s.onrender.com/checkout',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

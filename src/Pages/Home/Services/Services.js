@@ -8,7 +8,7 @@ const Services = () => {
      
     
     useEffect(()=>{
-        fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/services',{
+        fetch('https://whippy-delivery-server-s.onrender.com/services',{
             method:'GET'
         }) 
         .then(res => res.json())

@@ -9,7 +9,7 @@ import Row from './Row';
     //  const {_id,name,email,price,service,image,description}= allOrders;
 
     useEffect(()=>{
-      fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/manage')
+      fetch('https://whippy-delivery-server-s.onrender.com/manage')
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -20,7 +20,7 @@ import Row from './Row';
     const handleDelete = id =>{
       const proceed = window.confirm('Are you sure you want to delete?');
       if(proceed){
-      fetch(`https://node-server-iatejyv2i-tasnimjamil22.vercel.app/checkout/${id}`,{
+      fetch(`https://whippy-delivery-server-s.onrender.com/checkout/${id}`,{
         method:'DELETE'
         })
       .then(res=>res.json())
@@ -36,7 +36,7 @@ import Row from './Row';
     }
 
     const handleStatus = id => {
-        fetch(`https://node-server-iatejyv2i-tasnimjamil22.vercel.app/manage/${id}`,{
+        fetch(`https://whippy-delivery-server-s.onrender.com/manage/${id}`,{
            method:'PATCH',
            headers:{
             'content-type': 'application/json'

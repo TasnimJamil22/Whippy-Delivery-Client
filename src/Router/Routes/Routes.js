@@ -38,22 +38,22 @@ import ManageServices from "../../Pages/ManageOrders/ManageOrders";
            {
             path: '/services',
             element: <Services></Services>,
-            // loader:() => {fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/services')}
+            // loader:() => {fetch('https://whippy-delivery-server-s.onrender.com/services')}
            },
            {
             path: '/myOrders',
             element: <PrivateRoute><MyOrders></MyOrders></PrivateRoute>
-            // loader:() => {fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/services')}
+            // loader:() => {fetch('https://whippy-delivery-server-s.onrender.com/services')}
            },
            {
             path: '/manage',
             element: <PrivateRoute><ManageServices></ManageServices></PrivateRoute>,
-            loader:() => fetch('https://node-server-iatejyv2i-tasnimjamil22.vercel.app/manage')
+            loader:() => fetch('https://whippy-delivery-server-s.onrender.com/manage')
            },
            {
             path: '/checkout/:id',
             element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-            loader: ({params}) => fetch(`https://node-server-iatejyv2i-tasnimjamil22.vercel.app/services/${params.id}`)
+            loader: ({params}) => fetch(`https://whippy-delivery-server-s.onrender.com/services/${params.id}`)
            
            }
         ]
