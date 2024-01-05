@@ -36,9 +36,17 @@ const OrdersRow = ({order,handleDelete}) => {
         <td>{price}</td>
         <td>{date}</td>
         
+        
         <th>
+        {
+          status === 'confirmed' ? <span className='text-teal-600 font-bold'>Confirmed</span> :
+          <span>Pending</span>
+        }
+      </th>
+        
+        {/* <th>
           <button className="btn btn-ghost btn-xs">{status}</button>
-        </th>
+        </th> */}
        
              </tr>
         
