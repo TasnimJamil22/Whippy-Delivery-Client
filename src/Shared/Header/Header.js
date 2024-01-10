@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Header = () => {
-  const {user,logOut} = useContext(AuthContext);
+  const {user,logOut,setUserName} = useContext(AuthContext);
    const handleLogOut =() =>{
     logOut();
    }
+    
     const menuItems = <>
    <Link to='/'> <li className='mx-3 font-medium'>Home</li></Link>
    
@@ -18,7 +19,8 @@ const Header = () => {
     <Link to='/myOrders'><li className='mx-3 lg:text-emerald-50 font-medium'>My Orders</li></Link>
     <Link to='/addservice'><li className='mx-3 lg:text-emerald-50 font-medium'>Add a new Services</li></Link>
     <Link to='/manage'><li className='mx-3 lg:text-emerald-50 font-medium'>Manage All</li></Link>
-    <li className='text-emerald-700 pl-5 font-bold'>Welcome {user.email}</li>
+    <li className='text-emerald-700 pl-5 font-bold pr-2'>Welcome {user?.email}</li>
+    {/* <li className='text-emerald-700 pl-5 font-bold pr-2'>Welcome {user?.displayName}</li> */}
     <button onClick={handleLogOut} className='btn btn-sm bg-emerald-50 lg:text-[#0f766e] pl-5 font-bold'>Log Out</button>
     
     </>

@@ -15,7 +15,7 @@ const Service = ({s}) => {
     </div>
   </div>
 </div>
-        
+         
     );
 };
 

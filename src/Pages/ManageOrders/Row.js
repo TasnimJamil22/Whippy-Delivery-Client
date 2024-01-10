@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Row = ({row,handleDelete,handleStatus}) => {
-    const {_id,name,email,image,service,price,date,status} = row;
+    const {_id,name,email,address,phone,image,service,price,date,status} = row;
     return (
         <tr>
         <th><button onClick={()=> handleDelete(_id)} className="btn btn-circle btn-outline btn-sm">
@@ -21,16 +21,16 @@ const Row = ({row,handleDelete,handleStatus}) => {
       <td>
       <div>
             <div className="font-bold">{name}</div>
-            <div className="text-sm opacity-50">United States</div>
+            <div className="text-sm opacity-50">{address}</div>
           </div>
       </td>
       <td>
         {email}
         <br/>
-        {/* <span className="badge badge-ghost badge-sm"></span> */}
+        <span className="badge badge-ghost badge-sm">{phone}</span>
       </td>
       <td>{service}</td>
-      <td>{price}</td>
+      <td>${price}</td>
       <td>{date}</td>
       
       <th>

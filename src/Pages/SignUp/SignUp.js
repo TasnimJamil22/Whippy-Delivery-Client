@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
  
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../Contexts/AuthProvider';
+import { AuthContext, auth } from '../../Contexts/AuthProvider';
 import {useLocation,useNavigate} from 'react-router-dom';
+import { updateProfile } from 'firebase/auth';
  
 
 const SignUp = () => {
-  const {createUser} = useContext(AuthContext);
+  const [error,setError] = useState('');
+  const {createUser,setUserName} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || '/';
@@ -15,22 +17,44 @@ const SignUp = () => {
 
     const handleSignUp = event => {
         event.preventDefault();
+         
         const form = event.target;
+         const displayName = form.displayName.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
-        const user = {email, password};
+        console.log( displayName,email,password);
+        const user = { displayName,email,password };
+
+        if(password.length < 6){
+          setError('Password must be at least 6 characters');
+          return;
+        }
+        if(!/(?=.*[A-Z].*[A-Z])/.test(password)){
+          setError('Password must contain 2 uppercase');
+          return;
+        }
+        if(!/(?=.*[0-9].*[0-9])/.test(password)){
+          setError('Password must have 2 digits');
+          return;
+        }
 
         createUser(email,password)
         .then(result => 
           { 
             const user = result.user;
+            setUserName(displayName);
+           
+            setError('');
             console.log(user);
             form.reset();
             navigate(from,{replace:true});
+             
              }
           )
-          .catch(err=> console.log(err));
+          
+          .catch(err=> setError(err.message));
+
+           
 
         
       }
@@ -46,6 +70,13 @@ const SignUp = () => {
           <div className="card-body">
             <div className="form-control">
               <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              
+              <input type="text" placeholder="name" name="displayName" className="input input-bordered" />
+            </div>
+            <div className="form-control">
+              <label className="label">
                 <span className="label-text">Email</span>
               </label>
               
@@ -56,7 +87,7 @@ const SignUp = () => {
                 <span className="label-text">Password</span>
               </label>
               <input type="password" placeholder="password" name="password" className="input input-bordered" />
-              
+              <p className='text-red-500'>{error}</p>
             </div>
             <div className="form-control mt-6">
             {/* <button className="btn bg-gradient-to-r from-amber-400 to-rose-500 text-white">Login</button> */}

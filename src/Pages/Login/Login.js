@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import {useLocation,useNavigate} from 'react-router-dom';
 
 const Login = () => {
+  const [error,setError] = useState('');
   const {login} = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
@@ -20,10 +21,13 @@ const Login = () => {
     login(email,password)
     .then(result => {
       const user = result.user;
+        
+      setError('');
       console.log(user);
       form.reset();
       navigate(from, {replace:true})
     })
+    .catch(err => setError(err.message))
     
   }
     return (
@@ -49,11 +53,13 @@ const Login = () => {
           </label>
           <input type="password" placeholder="password" name="password" className="input input-bordered" />
           <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+            {/* <a href="#" className="label-text-alt link link-hover">Forgot password?</a> */}
           </label>
         </div>
+        <p className='text-red-500'>{error}</p>
         <div className="form-control mt-6">
         {/* <button className="btn bg-gradient-to-r from-amber-400 to-rose-500 text-white">Login</button> */}
+        
           <input type="submit" className="btn  bg-[#14b8a6] text-emerald-50 hover:bg-emerald-300" value="Login" />
         </div>
         <p>New to Whippy? <Link to='/signup' className='text-emerald-700'>Sign Up</Link> </p>
